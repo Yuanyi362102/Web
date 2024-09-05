@@ -26,4 +26,4 @@ nodemon app.js
 
 前端需要安装一个插件 “Live Server”,在插件应用市场搜索并安装
 之后在index.html文件中点击鼠标右键，如图:
-![image](https://pic.imgdb.cn/item/66d82527d9c307b7e9efd655.png)
+![image](https://github.com/Yuanyi362102/Web/blob/main/images/liveserver.png)
