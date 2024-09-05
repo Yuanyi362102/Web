@@ -1,0 +1,44 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.title {
+    margin: 10px 0;
+}
+
+.indent {
+    text-indent: 40px
+}
+
+#navbar-example {
+    position: fixed;
+    width: 230px;
+}
+
+/* 滚动监听的关键样式代码 */
+.scrollspy-example-2 {
+    position: relative;
+    height: 800px;
+    overflow: auto;
+}
+
+.box1 {
+    width: 100%;
+    height: auto;
+    background-color: #cefdff;
+    border-radius: 2px;
+}
+
+.box2 {
+    width: 100%;
+    height: auto;
+    background-color: #cefff1;
+    border-radius: 2px;
+}
+
+.box3 {
+    width: 100%;
+    height: auto;
+    background-color: #d4ceff;
+    border-radius: 2px;
+}

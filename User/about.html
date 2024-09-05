@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/about.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-2">
+            <nav id="navbar-example" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+                <a class="navbar-brand text-primary" href="#">导航</a>
+                <nav class="nav nav-pills flex-column">
+                    <!-- 作者 -->
+                    <a class="nav-link" href="#item-1">作者</a>
+                    <!-- 作者简介 -->
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#item-1-1">作者简介</a>
+                    </nav>
+                    <!-- 项目 -->
+                    <a class="nav-link" href="#item-2">项目</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#item-2-1">项目简介</a>
+                        <a class="nav-link ms-3 my-1" href="#item-2-2">技术亮点</a>
+                        <a class="nav-link ms-3 my-1" href="#item-2-3">特色功能</a>
+                    </nav>
+                    <a class="nav-link" href="#item-3">其他</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#item-3-1">致谢</a>
+                        <a class="nav-link ms-3 my-1" href="#item-3-2">版权</a>
+                        <a class="ms-3 my-1" href="../index.html">首页</a>
+                    </nav>
+                </nav>
+            </nav>
+        </div>
+        <div class="col-10">
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example" data-bs-offset="0" class="scrollspy-example-2"
+                tabindex="0">
+                <div class="box1">
+                    <!-- 作者 -->
+                    <h4 id="item-1" class="title">作者</h4>
+                    <!-- 作者简介 -->
+                    <h5 id="item-1-1">
+                        <img src="../images/author.svg" alt="" width="25px" height="25px"
+                            style="position: relative; top: -3px;">
+                        作者简介
+                    </h5>
+                    <p class="indent">南昌大学无名小卒，笔名“秋窗”, 接触过的技术包括但不限于
+                        C语言、Java、Python、Linux、HTML、CSS、JavaScript、Bootstrap、Vue、Node.js</p>
+                    <p>目前来看不是一名优秀的程序员, 因为他写代码经常不写注释, 时间久了, 写的代码自己都看不懂, 而且代码老是出Bug, 往往只能无能狂怒。但是作为一</p>
+                    <p>名长期混迹CSDN的菜鸟, 也是笔耕不辍,在平台获得了400余名“水军”。同时秉着学习计算机的初心, 作者对于新的技术总是抱着“多多益善”的心态去学习和</p>
+                    <p>了解。因此, 作者始终坚信 “绳锯木断, 水滴石穿”, 终有一天, 菜鸟也会变成高手, 让我们拭目以待。</p>
+                </div>
+                <div class="box2">
+                    <!-- 项目 -->
+                    <h4 id="item-2" class="title">项目</h4>
+                    <!-- 项目简介 -->
+                    <h5 id="item-2-1">
+                        <img src="../images/project.svg" alt="" width="30px" height="30px"
+                            style="position: relative; top: -3px;">
+                        项目简介
+                    </h5>
+                    <p class="indent">该项目历时xx余天, 由作者独立一人完成, 是一个以奥运为主题的新闻网站。涉及到的技术栈包括
+                        前端三件套、Bootstrap、Vue、Node.js(Express框架),
+                    </p>
+                    <p>数据库, 具备响应式布局，有比较完整的 注册、登录、搜索、评论、点赞等基础功能。界面整体而言比较和谐美观，适当增添的动画也使页面不那么单调乏味。</p>
+                    <!-- 技术亮点 -->
+                    <h5 id="item-2-2">
+                        <img src="../images/bulb.svg" alt="" width="25px" height="25px"
+                            style="position: relative; top: -3px;">
+                        技术亮点
+                    </h5>
+                    <p class="indent">1.使用axios向后端异步请求数据</p>
+                    <p class="indent">2.使用Bootstrap进行响应式设计</p>
+                    <p class="indent">3.使用Vue的响应式数据绑定, 动态更新页面</p>
+                    <p class="indent">4.前端使用了多种Bootstrap的组件, 包括了表单组件, 导航栏组件, 轮播图组件等</p>
+                    <p class="indent">5.使用Node.js建立后端服务器, 使整个项目前后端分离</p>
+                    <p class="indent">6.后端使用Token认证,一些前端功能需要登录后获得token才能使用(有点鸡肋)</p>
+                    <p class="indent">7.后端使用Joi对表单数据进行验证,防止非法输入, 提高了程序健壮性</p>
+                    <p class="indent">8.使用数据库对数据进行管理, 便于后端程序操作</p>
+                    <!-- 特色功能 -->
+                    <h5 id="item-2-3">
+                        <img src="../images/use.svg" alt="" width="25px" height="25px"
+                            style="position: relative; top: -2px;">
+                        特色功能
+                    </h5>
+                    <p class="indent">1.登录之后渲染用户名和用户头像</p>
+                    <p class="indent">2.搜索功能支持模糊搜索</p>
+                    <p class="indent">3.评论功能支持实时更新, 所见即所得</p>
+                    <p class="indent">4.调用“心知天气”API, 实时获取城市天气, 让你时刻关注奥运天气状况</p>
+                    <!-- 项目地址 -->
+                    <h5 id="item-2-3">
+                        <img src="../images/adress.svg" alt="" width="25px" height="25px"
+                            style="position: relative; top: -3px;">
+                        项目地址
+                    </h5>
+                    <a style="display: block; color: #333;" class="indent mb-3">http://127.0.0.1</a>
+                </div>
+                <div class="box3">
+                    <h4 id="item-3">其他</h4>
+                    <h5 id="item-3-1">
+                        <img src="../images/bow.svg" alt="" width="25px" height="25px"
+                            style="position: relative; top: -3px;">
+                        致谢
+                    </h5>
+                    <p class="indent">感谢《黑马程序员》的精品课程（不是打广告）</p>
+                    <p class="indent">感谢菜鸟教程</p>
+                    <p class="indent">感谢Chatgpt</p>
+                    <p class="indent">感谢伟大的互联网精神！！！</p>
+                    <h5 id="item-3-2">
+                        <img src="../images/版权.svg" alt="" width="30px" height="30px"
+                            style="position: relative; top: -3px;">
+                        版权
+                    </h5>
+                    <p class="indent">秉承互联网伟大开源精神, 该项目可在作者Github主页中下载</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

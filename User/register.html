@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="../CSS/register.css">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.net/axios/1.6.5/axios.js" crossorigin="anonymous"></script>
+    <!-- 回到首页 -->
+    <a href="../index.html">
+        <img src="../images/首页.svg" alt="" id="homepage">
+    </a>
+    <!-- 登录表单 -->
+    <div id="main-div">
+        <div id="main">
+            <!-- 表单标题 -->
+            <div id="main-title">
+                <span>R e g i s t e r &nbsp;&nbsp;&nbsp; F o r m</span>
+            </div>
+            <!-- 表单主体 -->
+            <div id="main-body">
+                <!-- info -->
+                <div class="d-flex justify-content-end">
+                    <img src="../images/问号.svg" alt="" id="info">
+                </div>
+                <!-- info-content -->
+                <div class="d-flex justify-content-end">
+                    <div id="info-content">
+                        <span style="display: block;">①用户名和密码必填</span>
+                        <span style="display: block;">②用户名只能包含a-z/A-Z/0-9</span>
+                        <span style="display: block;">③用户名长度不能超过10</span>
+                        <span style="display: block;">④密码必须是6~12个非空白字符</span>
+                    </div>
+                </div>
+                <!-- 用户 -->
+                <div class="form-floating was-validated" id="username-div">
+                    <textarea class="form-control" id="username" name="text" placeholder="commit" required></textarea>
+                    <label for="comment" style="margin-left: 62px;">UserName</label>
+                    <div class="valid-feedback" style="padding-left: 75px;">验证成功！</div>
+                    <div class="invalid-feedback" style="padding-left: 75px;">请输入用户名！</div>
+                </div>
+                <!-- 密码 -->
+                <div class="form-floating was-validated" id="password-div">
+                    <textarea class="form-control" id="password" name="text" placeholder="commit" required></textarea>
+                    <label for="comment" style="margin-left: 62px;">Password</label>
+                    <div class="valid-feedback" style="padding-left: 75px;">验证成功！</div>
+                    <div class="invalid-feedback" style="padding-left: 75px;">请输入用户名！</div>
+                </div>
+                <div id="status-div">
+                    <span id="status"></span>
+                </div>
+            </div>
+        </div>
+        <!-- 尾部装饰 -->
+        <div id="footer-div">
+            <!-- 左三角 -->
+            <svg width="30px" height="30px"><!-- 逆时针绘画 -->
+                <polygon points="30,0 30,30 0,30" style="fill: #fff;"></polygon>
+            </svg>
+            <!-- 中间矩形 -->
+            <button type="reset" id="rectangle">
+                <span>Register</span>
+            </button>
+            <!-- 右三角 -->
+            <svg width="30px" height="30px" id="right-triangle">
+                <polygon points="0,30 30,30 0,0" style="fill: #fff;"></polygon>
+            </svg>
+        </div>
+    </div>
+    <!-- 引入自定义js文件 -->
+    <script src="../JS/register.js"></script>
+</body>
+
+</html>

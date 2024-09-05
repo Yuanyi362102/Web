@@ -1,0 +1,116 @@
+#nanchang-box p{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'pingfanng';
+    margin: 0;
+}
+
+#nanchang-box p:hover {
+    color: red;
+    cursor: pointer;
+}
+
+#nanchang-box span:hover {
+    color: red;
+    cursor: pointer;
+}
+
+#nanchang-box img {
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#nanchang-box img:hover {
+    transform: scale(1.1, 1.1);
+    transition: all linear 1s;
+}
+
+#nanchang-box {
+    display: flex;
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+#nanchang-item-div {
+    width: 615px;
+}
+
+#nanchang-item01 {
+    width: 615px;
+    height: 170px;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+#nanchang-item02 {
+    width: 615px;
+    height: 170px;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+#nanchang-item03 {
+    display: flex;
+    width: 615px;
+}
+
+.nanchang-img-div {
+    overflow: hidden;
+    display: inline-block;
+}
+
+#nanchang-title {
+    width: 445px;
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+#nanchang-specialty {
+    width: 350px;
+    height: 450px;
+    margin-left: 30px;
+    margin-top: 45px;
+    border-radius: 3px;
+    background-color: rgb(186, 223, 213);
+}
+
+#nanchang-specialty-title {
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#nanchang-h3-title{
+    color: #71abc6;
+}
+
+#nanchang-specialty-ul {
+    margin: 20px;
+}
+
+#nanchang-specialty-ul li {
+    display: flex;
+}
+
+.nanchang-specialty-div{
+    margin:10px 10px;
+    overflow: hidden;
+}
+
+.nanchang-specialty-img {
+    width: 100px;
+    height: 74px;
+    box-shadow: 5px 5px 15px 1px #7d7979;
+    border: 1px solid #f2f2f2;
+}
+
+#nanchang-img-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 7px;
+}

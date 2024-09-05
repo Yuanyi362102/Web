@@ -1,0 +1,327 @@
+p {
+    font-size: 18px;
+    line-height: 1.667;
+    font-family: 'pingfang sc';
+    color: #222;
+    hyphens: auto;
+    letter-spacing: 2px;
+}
+
+.dropdown-menu {
+    padding-right: 10px;
+    width: 20px;
+    padding: 0;
+    min-width: 50px;
+    overflow: hidden;
+}
+
+.dropdown-menu button {
+    width: 50px;
+    padding: 0 10px;
+}
+
+.wrap {
+    position: relative;
+    text-align: justify;
+    height: 100%;
+    overflow: hidden;
+}
+
+.content-div {
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#title-div {
+    width: 810px;
+    margin: auto;
+}
+
+#title {
+    font-size: 39px;
+    font-family: 'pingfang';
+}
+
+.content-div {
+    width: 810px;
+}
+
+#img-div {
+    width: 810px;
+    margin: auto;
+}
+
+#img-title{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#interact-div {
+    position: fixed;
+    left: 20px;
+    width: 80px;
+    height: 160px;
+}
+
+.interact-subdiv {
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+}
+
+.interact-subdiv div {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #F8F8F8;
+}
+
+.interact-subdiv img {
+    position: relative;
+    left: 8px;
+    top: 5px;
+    cursor: pointer;
+}
+
+#thumb-num {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#comment-num {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+#comment-area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: auto;
+    background-color: #F8F8F8;
+}
+
+#comment-title {
+    height: 30px;
+    padding: 5px;
+}
+
+#commentNum {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#send-success {
+    font-size: 14px;
+    padding: 3px;
+    margin-left: 10px;
+    color: red;
+}
+
+#cross {
+    position: relative;
+    top: -2px;
+    width: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.split {
+    margin-top: 5px;
+    width: 100%;
+    height: 0.5px;
+    background-color: #a59c9c;
+}
+
+#text-div {
+    position: relative;
+    width: 83.3%;
+    height: 100px;
+    margin: auto;
+    margin-top: 30px;
+    border: 1px solid #999cb8;
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+textarea {
+    width: 92%;
+    height: 80px;
+    box-shadow: none;
+    outline: none;
+    font-size: 14px;
+    border: 0;
+    resize: none;
+}
+
+textarea::placeholder {
+    color: #333;
+    font-size: 14px;
+}
+
+#text-div button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    width: 40px;
+    height: 30px;
+    font-size: 14px;
+    color: #fff;
+    background-color: orangered;
+}
+
+#pleaseSign {
+    text-align: center;
+    padding: 10px;
+}
+
+#noComment{
+    width: 100%;
+    text-align: center;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+
+
+#comment-li {
+    margin-top: 10px;
+}
+
+#userImg-div {
+    width: 30px;
+    height: 60px;
+}
+
+#userImg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+    top: -2px;
+}
+
+#username-div {
+    margin-left: 10px;
+}
+
+#username {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#item {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 10px;
+}
+
+@media(max-width:1280px) {
+    #comment-area {
+        width: 250px;
+    }
+
+}
+
+@media(max-width:1170px) {
+    #comment-area {
+        width: 200px;
+    }
+
+}
+
+@media(max-width:900px) {
+    #comment-area {
+        width: 170px;
+    }
+
+}
+
+@media(max-width:1110px) {
+    #title-div {
+        width: 700px;
+        margin: auto;
+    }
+
+    #title {
+        font-size: 39px;
+    }
+
+    .content-div {
+        width: 700px;
+    }
+
+    #img-div {
+        width: 700px;
+        margin: auto;
+    }
+}
+
+@media(max-width:1010px) {
+    #title-div {
+        width: 600px;
+        margin: auto;
+    }
+
+    #title {
+        font-size: 27px;
+    }
+
+    .content-div {
+        width: 600px;
+    }
+
+    #img-div {
+        width: 600px;
+        margin: auto;
+    }
+}
+
+@media(max-width:850px) {
+    #title-div {
+        width: 500px;
+        margin: auto;
+    }
+
+    #title {
+        font-size: 27px;
+    }
+
+    .content-div {
+        width: 500px;
+    }
+
+    #img-div {
+        width: 500px;
+        margin: auto;
+    }
+}
+
+@media(max-width:730px) {
+    #title-div {
+        width: 400px;
+        margin: auto;
+    }
+
+    #title {
+        font-size: 27px;
+    }
+
+    .content-div {
+        width: 400px;
+    }
+
+    #img-div {
+        width: 400px;
+        margin: auto;
+    }
+}
+
+#news-content-div {
+    margin-top: 15px;
+}

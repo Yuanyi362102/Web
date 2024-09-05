@@ -1,0 +1,93 @@
+#video-modal {
+    height: 600px;
+    text-align: center;
+}
+
+.show {
+    max-height: 2000px;
+}
+
+.modal-dialog {
+    max-width: 1000px;
+    background-color: transparent;
+}
+#video-box {
+    width: 900px;
+    height: 500px;
+    margin: auto;
+}
+
+.video-floor {
+    display: flex;
+    width: 860px;
+    height: 180px;
+    /* background-color: antiquewhite; */
+    margin-bottom: 20px;
+}
+
+.video-floor img:hover {
+    transform: scale(1.1, 1.1);
+    transition: all linear 1s;
+    cursor: pointer;
+}
+
+.video-a-box {
+    width: 250px;
+    height: 180px;
+    margin: 0 20px;
+}
+
+.video-a-box a {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+.video-a-box a:hover {
+    color: red;
+}
+
+.video-img-box {
+    position: relative;
+    width: 240px;
+    /* height: 112px; */
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.video-playIcon {
+    position: absolute;
+    top: 45px;
+    right: 95px;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    /* border-radius: 50%; */
+    background-image: url(../images/播放.png);
+}
+
+.video-timeIcon {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    font-family: '微软雅黑';
+    font-style: normal;
+    color: #fff;
+}
+
+#video-social-icon {
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    /* background-color: antiquewhite; */
+}
+
+#video-social-ul {
+    display: flex;
+    padding: 0;
+}
+
+#video-social-ul li {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}

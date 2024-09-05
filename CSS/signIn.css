@@ -1,0 +1,154 @@
+textarea.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* 设置整体渐变背景色 */
+body {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #B6DEE8, #139ec1);
+}
+
+/* 根容器 */
+#main-div {
+    width: 500px;
+    height: 550px;
+    margin: auto;
+    margin-top: 68px;
+    position: relative;
+}
+
+/* 表单容器 */
+#main {
+    width: 500px;
+    height: 500px;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    box-shadow: 5px 5px 30px 5px #767474b8;
+}
+
+/* 表单标题 */
+#main-title {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    background-color: #05A19A;
+}
+
+/* 表单主体 */
+#main-body {
+    width: 100%;
+    height: 440px;
+    background-color: #a8d7cf;
+}
+
+#info {
+    width: 20px;
+    cursor: pointer;
+    display: block;
+}
+
+#info-content {
+    background-color: #fff;
+    width: 300px;
+    height: 80px;
+    opacity: 0;
+    font-size: 12px;
+}
+
+/* 用户名容器 */
+#username-div {
+    width: 500px;
+    position: relative;
+    box-shadow: none;
+    outline: none;
+}
+
+
+
+/* 用户输入框 */
+#username {
+    background-color: #a8d7cf;
+    width: 350px;
+    /* height: 60px; */
+    margin: auto;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    resize: none;
+    border-bottom: 0.5px solid #fff;
+}
+
+#username:valid {
+    background-position: 100%;
+}
+#username:invalid {
+    background-position: 100%;
+}
+
+
+/* 密码容器 */
+#password-div {
+    width: 500px;
+    position: relative;
+    top: 20px;
+}
+
+/* 密码输入框 */
+#password {
+    background-color: #a8d7cf;
+    width: 350px;
+    /* height: 60px; */
+    margin: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    resize: none;
+    border-bottom: 0.5px solid #fff;
+}
+
+#password:valid {
+    background-position: 100%;
+}
+#password:invalid {
+    background-position: 100%;
+}
+
+#status-div {
+    width: 500px;
+    height: 30px;
+    position: absolute;
+    bottom: 100px;
+    text-align: center;
+    color: rgb(15, 155, 15);
+}
+
+/* 尾部容器 */
+#footer-div {
+    position: absolute;
+    bottom: 0px;
+    left: -30px;
+}
+
+/* 中间矩形 */
+#rectangle {
+    background-color: #fff;
+    width: 560px;
+    height: 50px;
+    border: 0;
+    line-height: 50px;
+    color: #05A19A;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* 右三角 */
+#right-triangle {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+}
