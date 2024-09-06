@@ -15,6 +15,13 @@
 
 `下载项目源代码`
 
+```
+git clone git@github.com:Yuanyi362102/Web.git
+```
+
+```
+git clone git@github.com:Yuanyi362102/Server.git
+```
 下载本仓库的Web源码和后端仓库[Server](https://github.com/Yuanyi362102/Server/tree/main)里的源代码，并启用两个Vscode窗口分别打开这两个文件夹。
 
 `配置后端`
