@@ -95,6 +95,10 @@ nodemon app.js
 1. 由于网站“首页”的导航栏下的“视频”模块的视频体积太大，上传到github比较困难（lfs使用麻烦，且有限额），因此没有上传视频源，读者可在Web文件夹下的video.html文件中自行找到以下相关代码修改封面图片和视频源
 2. 网站详情页实际上只做了10个，因此搜索时有些详情页可能打不开。首页点击热榜新闻之后，通过“事件详情”跳转到到详情页也会遇到这个问题，读者可自行查看News-details下面有哪些新闻是做了详情页的。
 3. 网站”评论“功能不能发送表情包，不要尝试，真的会崩的哦！
+4. 在Vscode中安装“Live Server”插件，找到首页“index.html”,点击右键，如图，选择“open with Live Server”
+<img width="744" alt="图片" src="https://github.com/user-attachments/assets/ef1ad613-3097-4c72-a915-7c901d3843cf">
+
+
 
 <img width="898" alt="图片" src="https://github.com/user-attachments/assets/0814d874-5a4d-4b8a-aa55-f94de7334288">
 
@@ -102,7 +106,8 @@ nodemon app.js
 <img width="914" alt="图片" src="https://github.com/user-attachments/assets/90bc1bb0-3f84-4433-b3b3-aa39c4ad56b9">
 
 
-这时在前端的Web项目文件夹下找到index.html,用浏览器打开即可成功运行项目。
 
 ## 结尾
+有任何问题，请到我的[博客](https://blog.csdn.net/2302_79169315/article/details/141960542)下面评论留言，我会尽力为大家解答。
 由于作者水平有限，因此项目难免会出现一些bug，如果遇到bug导致网站崩溃，请重启项目。敬请谅解，不胜感激！
+
