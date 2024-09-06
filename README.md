@@ -1,5 +1,5 @@
 ## 项目导航
-1. **后端仓库地址**: [Server](https://github.com/Yuanyi362102/Server)
+1. **后端仓库地址**: [Server](https://github.com/Yuanyi362102/Server/tree/main)
 2. **项目相关的文章**: [CSDN博客地址](https://blog.csdn.net/2302_79169315?spm=1000.2115.3001.5343)
 3. **项目参考资料**: [黑马程序员Node.js课程](https://www.bilibili.com/video/BV1a34y167AZ/?spm_id_from=333.337.search-card.all.click)、[黑马程序员Vue课程](https://www.bilibili.com/video/BV12J411m7MG/?spm_id_from=333.337.search-card.all.click
 )、[菜鸟教程Bootstrap5文档](https://www.runoob.com/bootstrap5/bootstrap5-tutorial.html)
@@ -15,7 +15,7 @@
 
 `下载项目源代码`
 
-下载本仓库的Web源码和后端仓库[Server]()里的源代码，并启用两个Vscode窗口分别打开这两个文件夹。
+下载本仓库的Web源码和后端仓库[Server](https://github.com/Yuanyi362102/Server/tree/main)里的源代码，并启用两个Vscode窗口分别打开这两个文件夹。
 
 `配置后端`
 
