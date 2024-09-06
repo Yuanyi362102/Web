@@ -24,7 +24,12 @@
 npm install -g nodemon
 
 ```
-2.用Vscode(或其他开发工具)打开Server文件夹，在集成终端中输入以下命令:
+2. 安装依赖
+用Vscode打开Server文件夹，打开集成终端，输入以下命令安装依赖
+```
+npm i
+```
+3. 用Vscode(或其他开发工具)打开Server文件夹，在集成终端中输入以下命令:
 ```
 nodemon app.js
 
