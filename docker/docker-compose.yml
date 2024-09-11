@@ -1,7 +1,7 @@
 version: '3'
 services:
   frontend:
-    image: qiuchuang/my-frontend-app:1.0 # 或者使用 build 构建你的前端
+    image: qiuchuang/my-frontend-app:2.0 # 或者使用 build 构建你的前端
     ports:
       - "9999:80"
     networks:
