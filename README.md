@@ -23,7 +23,9 @@ git clone git@github.com:Yuanyi362102/Server.git
 
 **简易方式（推荐）：使用docker容器部署**
 
-`准备工作`：安装docker（网上可查）
+`准备工作`：
+
+安装docker（网上可查）
 
 进入项目的/Web/docker路径，选中docker-compose.yml文件，用终端打开,输入以下命令即可完成相应操作：
 
@@ -63,7 +65,7 @@ nodemon app.js
 
 `配置数据库`
 
-用数据库管理工具，比如Navcat，导入csv文件，csv文件位于项目的/web/docker路径下。
+用数据库管理工具，比如Navicat，导入csv文件，csv文件位于项目的/web/docker路径下。
 具体操作可看我写的这篇博客：[导入教程](https://editor.csdn.net/md/?articleId=142145391)
 
 表的结构：
