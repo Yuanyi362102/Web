@@ -117,8 +117,6 @@ var hotNews = new Vue({
         this.getHotNews()//初始化页面时获取新闻
         this.getWeather()//初始化页面时获取天气
         this.imgSrc = "https://p3-sign.toutiaoimg.com/tos-cn-i-axegupay5k/68373569a47549e098c5fa2432f4ec16~noop.image?_iz=58558&from=article.pc_detail&lk3s=953192f4&x-expires=1726541452&x-signature=wAkgP67Gvvsb9zJ4vIha7OPeIHI%3D"
-        this.imgSrc = "https://p3-sign.toutiaoimg.com/top-static-files-outer/breaknews/580c9bed-fc52-4d3b-86e4-0553dfd74627~tplv-tt-poster-sc-center:1125:780.jpeg?_iz=30575&from=sign_default&lk3s=8d617dac&x-expires=1725811200&x-signature=WcMmkn5TvX0zQTDf7aTZxNCZq%2Bo%3D"
-        this.imgSrc = "https://p3-sign.toutiaoimg.com/top-static-files-outer/breaknews/580c9bed-fc52-4d3b-86e4-0553dfd74627~tplv-tt-poster-sc-center:1125:780.jpeg?_iz=30575&from=sign_default&lk3s=8d617dac&x-expires=1725811200&x-signature=WcMmkn5TvX0zQTDf7aTZxNCZq%2Bo%3D"
     },
 })
 
