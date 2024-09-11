@@ -38,6 +38,8 @@ docker-compose up -d
 ```
 docker-compose down
 ```
+⚠️：如果报错`Error response from daemon: Head “https://registry-1.docker.io/v2/library/wordpress/manifests/latest”: unauthorized: incorrect username or password`
+需要输入`docker login`登录，如果没有账号需先注册docker账号
 
 **困难方式：在本地电脑部署**
 
