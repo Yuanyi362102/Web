@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" href="./font02/iconfont.css">
+</head>
+
+<body>
+    <!-- 引入vue和axios -->
+    <script src="https://cdn.staticfile.net/axios/1.6.5/axios.js" crossorigin="anonymous"></script>
+    <script src="./JS/vue.js"></script>
+    <!-- 引入jquery -->
+    <script src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+    <!-- 顶部 -->
+    <div class="context container-fluid">
+        <h1>时 事 聚 焦</h1>
+    </div>
+    <div class="area cotainer-fluid">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#test">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-warning" id="test">
+                <ul class="navbar-nav" style="width: 100%;">
+                    <div class="d-md-flex justify-content-start" style="width: 25%;">
+                        <!-- 关于 -->
+                        <li class="nav-item d-md-block">
+                            <a href="./User/about.html" class="nav-link">关于</a>
+                        </li>
+                        <!-- 反馈 -->
+                        <li class="nav-item d-md-block" id="feedback">
+                            <!-- 触发模态框 -->
+                            <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal">反馈</a>
+                        </li>
+                        <!-- 搜索 -->
+                        <li class="nav-item d-md-block d-none">
+                            <a href="./News/search.html" class="nav-link">搜索
+                                <img src="./images/搜索.svg" alt="" width="18px" style="position: relative; top: -2px;">
+                            </a>
+                        </li>
+                    </div>
+                    <div class="d-md-flex justify-content-end" style="width: 75%" id="user">
+                        <!-- 城市 -->
+                        <li class="nav-item d-md-block d-none">
+                            <a type="button" class="nav-link" id="city" data-bs-toggle="modal" data-bs-target="#cityModal">城市</a>
+                        </li>
+                        <!-- 天气 -->
+                        <li class="nav-item d-md-block d-none">
+                            <a href="#" class="nav-link" id="weather">天气</a>
+                        </li>
+                        <!-- 温度 -->
+                        <li class="nav-item d-md-block d-none">
+                            <a href="#" class="nav-link" id="temperature">温度</a>
+                        </li>
+                        <!-- 用户名 -->
+                        <li class="nav-item dropdown d-md-block" v-show="get">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                v-show="get" id="username">{{username}}</a>
+                            <div class="dropdown-menu">
+                                <button href="#" class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#userModal">修改</button>
+                                <button href="#" class="dropdown-item" @click="LogOut">注销</button>
+                            </div>
+                        </li>
+                        <!-- 用户头像 -->
+                        <li class="nav-item d-md-block">
+                            <a href="#" class="nav-link" v-show="get">
+                                <img v-bind:src="pic" alt="" width="20px" height="20px"
+                                    style="border-radius: 50%; position: relative; top: -2px;">
+                            </a>
+                        </li>
+                        <!-- 注册 -->
+                        <li class="nav-item d-md-block">
+                            <a href="./User/register.html" class="nav-link" v-show="!get">注册</a>
+                        </li>
+                        <!-- 登录 -->
+                        <li class="nav-item d-md-block">
+                            <a href="./User/siginIn.html" class="nav-link" v-show="!get">登录</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+        <!-- 动画 -->
+        <ul class="circles container-fluid">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="wrap">
+        <!-- 反馈 -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">反馈</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- 模态框内容 -->
+                    <div class="modal-body" id="modalBody">
+                        <textarea placeholder="说点什么吧" v-show="!isSend" v-model="feedbackContent"></textarea>
+                        <div v-show="isSend">
+                            <span>感谢您的反馈
+                                <img src="./images/bow.svg" alt="" width="20px" height="20px">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <div style="text-align: left; width: 250px;">
+                            <span class="text-danger" v-show="feedbackContent === ''">内容不能为空</span>
+                        </div>
+                        <button type="button" class="btn btn-danger"  @click="sendFeedback">发送</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 城市 -->
+        <div class="modal fade" id="cityModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">城市</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- 模态框内容 -->
+                    <div class="modal-body" id="modalBody">
+                        <!-- 默认显示 -->
+                        <textarea placeholder="输入城市名" v-show="!isSend" v-model="cityContent" id="cityTextarea"></textarea>
+                        <!-- 默认不显示 -->
+                        <div v-show="isSend">
+                            <span>查询成功
+                                <img src="./images/bow.svg" alt="" width="20px" height="20px">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <div style="text-align: left; width: 250px;">
+                            <span class="text-danger" v-show="cityContent === ''">内容不能为空</span>
+                        </div>
+                        <button type="button" class="btn btn-danger"  @click="sendCity">发送</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 修改 -->
+        <div class="modal fade" id="userModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">修改用户信息</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- 模态框内容 -->
+                    <div class="modal-body" id="modalBody">
+                        <!-- 默认显示 -->
+                        <input type="text" placeholder="用户名" style="outline: none;" v-model="username" v-show="!isSend">
+                        <input type="text" placeholder="密码" style="outline: none;" v-model="password" v-show="!isSend">
+                        <!-- 默认不显示 -->
+                        <div v-show="isSend">
+                            <span>修改成功,请重新登录
+                                <img src="./images/bow.svg" alt="" width="20px" height="20px">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <div style="text-align: center; width: 400px;">
+                            <span class="text-danger" v-show="username === '' || password ==='' ">{{warningInfo}}</span>
+                        </div>
+                        <button type="button" class="btn btn-danger"  @click="changeInfo">发送</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <div id="nav" class="container-fluid ">
+            <ul>
+                <li @click="change">
+                    <span>关注</span>
+                </li>
+                <li style="color: red;">
+                    <span>推荐</span>
+                </li>
+                <li>
+                    <span>南昌</span>
+                </li>
+                <li>
+                    <span>视频</span>
+                </li>
+                <li>
+                    <span>财经</span>
+                </li>
+                <li>
+                    <span>科技</span>
+                </li>
+                <li>
+                    <span>历史</span>
+                </li>
+                <li>
+                    <span>国际</span>
+                </li>
+                <li id="more-btn">
+                    <!-- 使用bootstrap实现折叠效果 -->
+                    <span>更多
+                        <img src="./images/arrow.png" id="arrow">
+                    </span>
+                    <div class="more-content" class="collaspe">
+                        <div>
+                            <span>军事</span>
+                            <span>体育</span>
+                            <span>娱乐</span>
+                            <span>历史</span>
+                        </div>
+                        <div>
+                            <span>科技</span>
+                            <span>文化</span>
+                            <span>美食</span>
+                            <span>旅游</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 导航栏内容 -->
+        <!-- 关注 -->
+        <div id="focus" style="display: none;"></div>
+        <!-- 南昌 -->
+        <div id="nanchang" style="display: none;"></div>
+        <!-- 视频 -->
+        <div id="video" style="display: none;"></div>
+        <!-- 财经 -->
+        <div id="finance" style="display: none;"></div>
+        <!-- 科技 -->
+        <div id="science" style="display: none;"></div>
+        <!-- 历史 -->
+        <div id="history" style="display: none;"></div>
+        <!-- 国际 -->
+        <div id="internation" style="display: none;"></div>
+        <!-- 热点新闻区 -->
+        <div id="hotNews-box" style="display: block;">
+            <div id="hotNews-div" class="d-lg-flex d-block justify-content-center">
+                <div>
+                    <!-- 新闻热榜（副本） -->
+                    <div id="hotNews-list-copy" class="d-sm-block d-md-block d-lg-block d-xl-none">
+                        <div id="hotnews-list-title">
+                            <img src="./images/热搜.png" alt="" width="15px">
+                            <span>热搜榜</span>
+                            <span id="change-change" class="iconfont" @click="changeNews">换一换&#xe64e;</span>
+                        </div>
+                        <ul>
+                            <li v-for="(item,index) in visibleNewsList">
+                                <span :style="getStyle(index)">{{index+1+'.'}}</span>
+                                <span @click="changeImg">{{item}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 热榜左侧 -->
+                    <div id="hotNews" class="d-md-flex ">
+                        <div id="hotNews-left-box">
+                            <div id="today-hot">
+                                今日<span style="color: red; font-weight: 500;">热</span>榜
+                            </div>
+                            <div id="newsTitle">
+                                <span id="title">日本首次发布“巨大地震警报” </span>
+                            </div>
+                            <div>
+                                <div id="meta-info">热门事件 ｜ <span id="readNum">337</span>万</div>
+                                <div id="share">
+                                    <img src="./images/转发.png" alt="" width="16px">
+                                </div>
+                            </div>
+                        </div>
+                        <img id="hotNews-img" v-bind:src="imgSrc" width="370px">
+                    </div>
+                    <!-- 事件详情 -->
+                    <div id="detail-div">
+                        <div id="event-title">
+                            <span>事件详情</span>
+                            <!-- <span class="iconfont d-lg-none">换一换&#xe64e;</span> -->
+                        </div>
+                        <div style="display: flex;">
+                            <div>
+                                <div id="event-content">
+                                    <a href="#" id="detail-title" @mouseover="changeURL">日本首次发布“巨大地震警报”</a>
+                                </div>
+                                <div id="event-footer">
+                                    <span>环球新闻</span>
+                                    <span>696评论</span>
+                                    <span>昨天14:05</span>
+                                </div>
+                            </div>
+                            <div id="event-img" class="d-md-block ml-md-1">
+<<<<<<< HEAD
+                                <img src="./images/riben.webp" alt="" id="detail-img" width="150px" height="118px">
+=======
+                                <img src="./images/riben.jpeg" alt="" id="detail-img" width="150px" height="118px">
+>>>>>>> origin/main
+                            </div>
+                        </div>
+                        <!-- 分割线 -->
+                        <div class="split"></div>
+                    </div>
+                </div>
+    
+                <!-- 热搜榜（热榜右侧） -->
+                <div id="hotNews-list" class="d-xl-block d-none">
+                    <div id="hotnews-list-title">
+                        <img src="./images/热搜.png" alt="" width="15px">
+                        <span>热搜榜</span>
+                        <span id="change-change" class="iconfont" @click="changeNews">换一换&#xe64e;</span>
+                    </div>
+                    <ul>
+                        <li v-for="(item,index) in visibleNewsList">
+                            <span :style="getStyle(index)">{{index+1+'.'}}</span>
+                            <span @click="changeImg">{{item}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-lg-flex justify-content-center" style="position: relative;">
+            <!-- 奥运区 -->
+            <div id="suggest-div">
+                <div id="suggest-title">
+                    <span>关注奥运</span>
+                </div>
+                <div id="time-node">
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月11日 13:31 · 中国新闻网</span>
+                        <span class="node-content">举重运动员李发彬、曲棍球运动员欧紫霞，担任巴黎奥运会闭幕式中国代表团旗手</span>
+                    </div>
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月11日 07:19 · 新京报</span>
+                        <span class="node-content">国际奥委会主席巴赫宣布不再连任</span>
+                    </div>
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月11日 06:44 · 直播吧</span>
+                        <span class="node-content">首马完赛！谷爱凌参加奥运大众组马拉松，成绩3小时24分36秒</span>
+                    </div>
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月11日 05:18 · 抖音体育</span>
+                        <span class="node-content">库里封神之战！美国男篮击败法国实现奥运五连冠</span>
+                    </div>
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月11日 04:56 · 足球部落</span>
+                        <span class="node-content">地39金！李倩夺得拳击女子75公斤级奖牌，中国队金牌数超越东京</span>
+                    </div>
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月10日 23:23 · 足球部落</span>
+                        <span class="node-content">第37金！国乒女团3-0横扫日本对摘金，豪取奥运五连冠</span>
+                    </div>
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月10日 22:23 · 澎湃新闻</span>
+                        <span class="node-content">曹缘成功卫冕，中国跳水梦之队首次包揽奥运会全部金牌</span>
+                    </div>
+                    <div class="node">
+                        <span class="node-thumb"></span>
+                        <span class="node-title">08月10日 22:04 · 新民晚报</span>
+                        <span class="node-content">第35金！中国艺术体操团体全能摘得奥运首金，创造历史</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 这一段代码只是做填充作用，并无实际意义 -->
+            <div id="hotNews-list" class="d-xl-block d-none my-element">
+                <div id="hotnews-list-title">
+                    <img src="./images/热搜.png" alt="" width="15px">
+                    <span>热搜榜</span>
+                    <span id="change-change" class="iconfont" @click="changeNews">换一换&#xe64e;</span>
+                </div>
+                <ul>
+                    <li v-for="(item,index) in visibleNewsList">
+                        <span :style="getStyle(index)">{{index+1+'.'}}</span>
+                        <span @click="changeImg">{{item}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="my-element02">
+            <!-- 奖牌榜 -->
+            <div id="medal-div">
+                <div id="medal-title">
+                    <div class="logo-box">
+                        <img src="./images/logo.png" alt="">
+                    </div>
+                    <span>2024巴黎奥运会奖牌榜</span>
+                </div>
+                <div id="medal-info">
+                    <div id="competition" @click="showCompetitionName" class="competition-border">
+                        <span>赛程</span>
+                    </div>
+                    <div id="country" @click="showCountryName" class="country-border">
+                        <span>奖牌</span>
+                    </div>
+                </div>
+                <div id="competition-content" v-show="showCompetition">
+                    <ul>
+                        <li v-for="(item,index) in competitionName">
+                            <img v-bind:src="competitionImgSrc[index]" alt="" width="20px" class="competition-img">
+                            {{item}}
+                            <span id="end-info">
+                                <span>已结束</span>
+                                <img src="./images/arrow-right.svg" alt="">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="country-content" v-show="showCountry">
+                    <ul>
+                        <li v-for="(item,index) in countryName">
+                            <img v-bind:src="countryImgSrc[index]" alt="" width="20px" class="country-img">
+                            {{item.name}}
+                            <span>{{item.goldmedal}} 金 {{item.silvermedal}} 银 {{item.bronzemedal}} 铜 </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 奥运精彩瞬间 -->
+            <div id="athlete-div">
+                <div id="athlete-title">
+                    <div class="logo-box">
+                        <img src="./images/logo.png" alt="">
+                    </div>
+                    <span>奥运精彩瞬间</span>
+                </div>
+                <!-- 轮播图(Bootstrap实现) -->
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                    <!-- 指示符 -->
+                    <div class="carousel-indicators">
+                        <button data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        <button data-bs-target="#demo" data-bs-slide-to="3"></button>
+                        <button data-bs-target="#demo" data-bs-slide-to="4"></button>
+                    </div>
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./images/athlete01.png" alt="" class="d-block" width="500px" height="300px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/athlete02.png" alt="" class="d-block" width="500px" height="300px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/athlete03.png" alt="" class="d-block" width="500px" height="300px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/athlete04.png" alt="" class="d-block" width="500px" height="300px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/athlete05.png" alt="" class="d-block" width="500px" height="300px">
+                        </div>
+                    </div>
+                    <!-- 左右切换按钮 -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" id="prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" id="next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 尾部 -->
+    <div id="footer">
+        <ul>
+            <li>
+                <span>订阅</span>
+                <p>体育赛事</p>
+                <p>娱乐健康</p>
+                <p>财经新闻</p>
+                <p>科技动态</p>
+            </li>
+            <li>
+                <span>下载</span>
+                <p>App Store</p>
+                <p>Play Store</p>
+            </li>
+            <li>
+                <span>供应商</span>
+                <p>环球资讯</p>
+                <p>南城晚报</p>
+            </li>
+            <li>
+                <span>关注我们</span>
+                <p>公众号</p>
+                <p>新浪微博</p>
+                <p>哔哩哔哩</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 原生js -->
+    <script src="./JS/index01.js"></script>
+    <!-- vue.js -->
+    <script src="./JS/index02.js"></script>
+    <script src="./JS/index03.js"></script>
+    <script src="./JS/index04.js"></script>
+    <script src="./JS/index05.js"></script>
+</body>
+
+</html>

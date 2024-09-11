@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News06</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="../CSS/newsPublic.css">
+    <link rel="stylesheet" href="../CSS/reset.css">
+</head>
+
+<body>
+    <!-- 引入vue和axios -->
+    <script src="https://cdn.staticfile.net/axios/1.6.5/axios.js" crossorigin="anonymous"></script>
+    <script src="../JS/vue.js"></script>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #B6DEE8; color: #fff;">
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapseNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapseNavbar">
+            <ul class="navbar-nav" id="header">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item dropdown d-md-block" v-show="get">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" v-show="get">{{username}}</a>
+                    <div class="dropdown-menu">
+                        <button href="#" id="logout" class="dropdown-item" @click="LogOut">注销</button>
+                    </div>
+                </li>
+                <li class="nav-item d-md-block">
+                    <a href="#" class="nav-link" v-show="get">
+                        <img v-bind:src="pic" alt="" width="20px" height="20px"
+                            style="border-radius: 50%; position: relative; top: -2px;">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../User/register.html" class="nav-link" v-show="!get">注册</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../User/siginIn.html" class="nav-link" v-show="!get">登录</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../News/search.html" class="nav-link">搜索
+                        <img src="../images/搜索.svg" alt="" width="20px" style="position: relative;top: -2px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="wrap container-fluid">
+        <!-- 标题 -->
+        <div id="title-div">
+            <div style="width: 90%;">
+                <span id="title">马龙称这是奥运会最后一舞</span>
+            </div>
+        </div>
+        <!-- 左侧互动区 -->
+        <div id="interact-div">
+            <div class="interact-subdiv">
+                <div>
+                    <img id="thumb"
+                        src="https://lf-dw.toutiaostatic.com/obj/toutiao-duanwai/toutiao/toutiao_web_pc/svgs/like.0caed57a.svg"
+                        alt="">
+
+                </div>
+                <span id="thumb-num">2513</span>
+            </div>
+            <div class="interact-subdiv">
+                <div>
+                    <img id="comment"
+                        src="https://lf-dw.toutiaostatic.com/obj/toutiao-duanwai/toutiao/toutiao_web_pc/svgs/icon_comment.d319bd6b.svg"
+                        alt="">
+                </div>
+                <span id="comment-num">137</span>
+            </div>
+        </div>
+        <!-- 新闻内容区 -->
+        <div id="news-content-div">
+            <div class="content-div">
+                <div style="width: 90%;">
+                    <p>马龙没有像几天前的德国老将波尔那样泪洒赛场，他微笑着宣布自己已经确定将与奥运赛场告别的消息。他在赛后新闻发布会上说，“这种感觉是非常骄傲、非常幸运、非常自豪的。”</p>
+                    <p>马龙：作为奥运会来说，这个舞台确实是自己最后一舞。我觉得这个经历，是一种完美的经历，这一刻，我感觉非常骄傲，非常幸运，非常自豪。
+                    </p>
+                </div>
+            </div>
+            <div id="img-div">
+                <div style="width: 80%;">
+                    <img src="../images/newsImg/06.jpg" class="img-fluid">
+                    <p style="margin-top: 10px;" id="img-title">马龙夺冠后庆祝动作</p>
+                </div>
+            </div>
+            <div class="content-div">
+                <div style="width: 90%;">
+                    <p>“如果这是你奥运生涯的最后一舞，你认为这次比赛是完美的谢幕吗？”北京时间8月10日，在巴黎奥运会乒乓球男子团体决赛后的新闻发布会上，一位中国记者向马龙提了这样一个问题，马龙稍微思考了片刻，然后回答，“我觉得，作为奥运会来说，确实是最后一舞，我觉得这个结果确实也是完美的。”</p>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧评论区 -->
+        <div id="comment-area">
+            <div id="comment-title" class="d-flex">
+                <div class="d-flex justify-content-start" style="width: 60%;">
+                    <span id="commentNum">评论数 {{commentContent.length}}</span>
+                    <span id="send-success" v-show="isSend">发送成功!</span>
+                </div>
+                <div class="d-flex justify-content-end" style="width: 40%;">
+                    <span>
+                        <img id="cross" src="../images/叉号(1).svg" @click="close">
+                    </span>
+                </div>
+            </div>
+            <div class="split"></div>
+            <div id="text-div">
+                <textarea type="text" id="comment-textarea" placeholder="说点什么吧" @keyup.enter="postComment"></textarea>
+                <button @click="postComment">发送</button>
+            </div>
+            <div>
+                <!-- 先登录再评论 -->
+                <div v-show="userToken === '' || userToken === null" id="pleaseSign">
+                    <span>请登录后评论</span>
+                </div>
+                <ul id="comment-ul">
+                    <!-- 暂无评论 -->
+                    <div v-show="userToken !== '' && userToken !== null  && dataLength === 0" id="noComment">
+                        <span>暂无评论</span>
+                    </div>
+                    <!-- 评论详情 -->
+                    <li v-for="(item,index) in commentContent" class="d-flex" id="comment-li">
+                        <!-- 左侧头像 -->
+                        <div id="userImg-div">
+                            <img v-show="userToken !== '' && userToken !== null &&  dataLength > 0" v-bind:src="user[index].pic" id="userImg">
+                        </div>
+                        <!-- 右侧用户名和评论 -->
+                        <div id="username-div">
+                            <span id="username" v-show="userToken !== '' && userToken !== null && dataLength > 0">{{user[index].uname}}</span>
+                            <p v-show="userToken !== '' && userToken !== null && dataLength > 0" id="item">
+                                {{item}}
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../JS/header.js"></script>
+    <script src="../JS/comment.js"></script>
+    <!-- 注销，左侧点赞和评论按钮 -->
+    <script src="../JS/news.js"></script>
+</body>
+
+</html>

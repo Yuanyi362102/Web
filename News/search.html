@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="../CSS/search.css">
+    <link rel="stylesheet" href="../CSS/reset.css">
+</head>
+
+<body>
+    <!-- 引入axios和vue -->
+    <script src="https://cdn.staticfile.net/axios/1.6.5/axios.js" crossorigin="anonymous"></script>
+    <script src="../JS/vue.js"></script>
+    <a href="../index.html">
+        <img src="../images/首页.svg" alt="" id="homepage">
+    </a>
+    <div id="main">
+        <div>
+            <video src="../images/超分辨率-1080P-时事聚焦.mp4" autoplay loop></video>
+            <div id="input-div" class="d-flex">
+                <input type="text" @keyup="handleKeyUp" v-model="keyword">
+                <img src="../images/搜索-copy.svg" alt="" id="search-img" width="30px">
+            </div>
+        </div>
+        <div>
+            <ul v-show="isShow">
+                <li v-for="item in searchList">
+                    <a href="#" @mouseover="changeURL">{{item}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- vue.js -->
+    <script src="../JS/search.js"></script>
+</body>
+
+
+</html>

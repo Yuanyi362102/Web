@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/history.css">
+</head>
+
+<body>
+    <div id="history-box">
+        <div id="history-left-div">
+            <div class="history-floor">
+                <p class="history-title">契丹族消失之谜：150万契丹人一夜间蒸发，96年一封信件试图揭秘</p>
+                <div class="history-img-box">
+                    <div class="history-img-div"><img src="../images/history/history01.jpg" width="140px" height="92px">
+                    </div>
+                    <div class="history-img-div"><img src="../images/history/history02.jpg" width="140px" height="92px">
+                    </div>
+                    <div class="history-img-div"><img src="../images/history/history03.jpg" width="140px" height="92px">
+                    </div>
+                    <div class="history-img-div"><img src="../images/history/history04.jpg" width="140px" height="92px">
+                    </div>
+                </div>
+            </div>
+            <div class="history-floor">
+                <p class="history-title">我国历史上的辽国和金国，是如今的哪个省份？你知道吗？</p>
+                <div class="history-img-box">
+                    <div class="history-img-div"><img src="../images/history/history05.jpg" width="140px" height="92px">
+                    </div>
+                    <div class="history-img-div"><img src="../images/history/history06.jpg" width="140px" height="92px">
+                    </div>
+                    <div class="history-img-div"><img src="../images/history/history07.jpg" width="140px" height="92px">
+                    </div>
+                    <div class="history-img-div"><img src="../images/history/history08.jpg" width="140px" height="92px">
+                    </div>
+                </div>
+            </div>
+            <div class="history-floor" style="display: flex; height: 150px;">
+                <p class="history-title" style="width: 450px;">2007年发现的罗布泊雅丹干尸就是彭加木的议题的考证报告</p>
+                <div class="history-img-box" style="width: 150px;">
+                    <div class="history-img-div"><img src="../images/history/history09.jpg" width="150px" height="92px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="history-right-div">
+            <div id="mid-line">
+                <div class="history-timeNode" id="history-timeNode01">1949</div>
+                <div class="history-timeNode" id="history-timeNode02">1964</div>
+                <div class="history-timeNode" id="history-timeNode03">1997</div>
+                <div class="history-timeNode" id="history-timeNode04">2001</div>
+                <div class="history-timeNode" id="history-timeNode05">2008</div>
+                <div class="history-timeNode" id="history-timeNode06">2020</div>
+                <svg width="20px" height="20px" style="position: absolute; top: 60px;left: 4px;" id="history-triangle01"><!-- 逆时针绘画 -->
+                    <polygon points="0,0 17,10 0,20" style="fill: #FF68B4;"></polygon>
+                </svg>
+                <div class="history-event" id="history-event01">新中国成立</div>
+                <svg width="20px" height="20px"
+                    style="position: absolute; top: 140px;left: -25px; transform: rotate(180deg);" id="history-triangle02"><!-- 逆时针绘画 -->
+                    <polygon points="0,0 17,10 0,20" style="fill: #FF68B4;"></polygon>
+                </svg>
+                <div class="history-event" id="history-event02">中国研制出原子弹</div>
+                <svg width="20px" height="20px" style="position: absolute; top: 220px;left: 4px;" id="history-triangle03"><!-- 逆时针绘画 -->
+                    <polygon points="0,0 17,10 0,20" style="fill: #FF68B4;"></polygon>
+                </svg>
+                <div class="history-event" id="history-event03">香港回归</div>
+                <svg width="20px" height="20px"
+                    style="position: absolute; top: 300px;left: -25px; transform: rotate(180deg);" id="history-triangle04"><!-- 逆时针绘画 -->
+                    <polygon points="0,0 17,10 0,20" style="fill: #FF68B4;"></polygon>
+                </svg>
+                <div class="history-event" id="history-event04">中国加入世贸组织</div>
+                <svg width="20px" height="20px" style="position: absolute; top: 380px;left: 4px;" id="history-triangle05"><!-- 逆时针绘画 -->
+                    <polygon points="0,0 17,10 0,20" style="fill: #FF68B4;"></polygon>
+                </svg>
+                <div class="history-event" id="history-event05">北京奥运会</div>
+                <svg width="20px" height="20px"
+                    style="position: absolute; top: 460px;left: -25px; transform: rotate(180deg);" id="history-triangle06"><!-- 逆时针绘画 -->
+                    <polygon points="0,0 17,10 0,20" style="fill: #FF68B4;"></polygon>
+                </svg>
+                <div class="history-event" id="history-event06">新冠疫情</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var Event01 = document.querySelector('#history-event01')
+        var Event02 = document.querySelector('#history-event02')
+        var Event03 = document.querySelector('#history-event03')
+        var Event04 = document.querySelector('#history-event04')
+        var Event05 = document.querySelector('#history-event05')
+        var Event06 = document.querySelector('#history-event06')
+        var Histri01 = document.querySelector('#history-triangle01')
+        var Histri02 = document.querySelector('#history-triangle02')
+        var Histri03 = document.querySelector('#history-triangle03')
+        var Histri04 = document.querySelector('#history-triangle04')
+        var Histri05 = document.querySelector('#history-triangle05')
+        var Histri06 = document.querySelector('#history-triangle06')
+
+        Event01.onmouseover = function(){
+            this.style.transform = 'translateX(30px)'
+            this.style.transition = 'all linear .2s'
+            Histri01.style.transform = 'translateX(30px)'
+            Histri01.style.transition = 'all linear .2s'
+        }
+        Event01.onmouseleave = function(){
+            this.style.transform = 'translateX(0)'
+            this.style.transition = 'all linear .2s'
+            Histri01.style.transform = 'translateX(0)'
+            Histri01.style.transition = 'all linear .2s'
+        }
+        Event02.onmouseover = function(){
+            this.style.transform = 'translateX(-30px)'
+            this.style.transition = 'all linear .2s'
+            Histri02.style.transform = 'translateX(-30px) rotate(180deg)'
+            Histri02.style.transition = 'all linear .2s'
+        }
+        Event02.onmouseleave = function(){
+            this.style.transform = 'translateX(0)'
+            this.style.transition = 'all linear .2s'
+            Histri02.style.transform = 'translateX(0) rotate(180deg)'
+            Histri02.style.transition = 'all linear .2s'
+        }
+        Event03.onmouseover = function(){
+            this.style.transform = 'translateX(30px)'
+            this.style.transition = 'all linear .2s'
+            Histri03.style.transform = 'translateX(30px)'
+            Histri03.style.transition = 'all linear .2s'
+        }
+        Event03.onmouseleave = function(){
+            this.style.transform = 'translateX(0)'
+            this.style.transition = 'all linear .2s'
+            Histri03.style.transform = 'translateX(0)'
+            Histri03.style.transition = 'all linear .2s'
+        }
+        Event04.onmouseover = function(){
+            this.style.transform = 'translateX(-30px)'
+            this.style.transition = 'all linear .2s'
+            Histri04.style.transform = 'translateX(-30px) rotate(180deg)'
+            Histri04.style.transition = 'all linear .2s'
+        }
+        Event04.onmouseleave = function(){
+            this.style.transform = 'translateX(0)'
+            this.style.transition = 'all linear .2s'
+            Histri04.style.transform = 'translateX(0) rotate(180deg)'
+            Histri04.style.transition = 'all linear .2s'
+        }
+        Event05.onmouseover = function(){
+            this.style.transform = 'translateX(30px)'
+            this.style.transition = 'all linear .2s'
+            Histri05.style.transform = 'translateX(30px)'
+            Histri05.style.transition = 'all linear .2s'
+        }
+        Event05.onmouseleave = function(){
+            this.style.transform = 'translateX(0)'
+            this.style.transition = 'all linear .2s'
+            Histri05.style.transform = 'translateX(0)'
+            Histri05.style.transition = 'all linear .2s'
+        }
+        Event06.onmouseover = function(){
+            this.style.transform = 'translateX(-30px)'
+            this.style.transition = 'all linear .2s'
+            Histri06.style.transform = 'translateX(-30px) rotate(180deg)'
+            Histri06.style.transition = 'all linear .2s'
+        }
+        Event06.onmouseleave = function(){
+            this.style.transform = 'translateX(0)'
+            this.style.transition = 'all linear .2s'
+            Histri06.style.transform = 'translateX(0) rotate(180deg)'
+            Histri06.style.transition = 'all linear .2s'
+        }
+    </script>
+</body>
+
+</html>

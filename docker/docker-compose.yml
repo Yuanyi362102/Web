@@ -1,0 +1,47 @@
+version: '3'
+services:
+  frontend:
+    image: qiuchuang/my-frontend-app:1.0 # 或者使用 build 构建你的前端
+    ports:
+      - "9999:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  backend:
+    image: qiuchuang/my-backend-app:1.0 # 或者使用 build 构建你的后端
+    ports:
+      - "9421:80"
+    environment:
+      - DATABASE_HOST=mysql
+      - DATABASE_PORT=3306
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=123
+      - DATABASE_NAME=demo
+    networks:
+      - app-network
+    depends_on:
+      - mysql
+
+  mysql:
+    image: qiuchuang/mysql-app:1.0
+    ports:
+      - "3332:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: demo
+    # command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      # - db-data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d/  # 挂载 db-init 目录
+      # - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

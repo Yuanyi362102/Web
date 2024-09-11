@@ -1,0 +1,873 @@
+/* 头部文本（时事聚焦）及动画 */
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Exo', sans-serif;
+}
+
+.context {
+    width: 100%;
+    position: absolute;
+    top: 50px;
+
+}
+
+.context h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+.area {
+    background: #b6dee9;
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+    width: 100%;
+    height: 200px;
+
+
+}
+
+.area nav {
+    position: relative;
+    z-index: 999;
+    background-color: #B6DEE8;
+}
+
+.dropdown-menu {
+    padding-right: 10px;
+    width: 20px;
+    padding: 0;
+    min-width: 50px;
+    overflow: hidden;
+}
+
+.dropdown-menu button {
+    width: 50px;
+    padding: 0 10px;
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+
+}
+
+.circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
+
+/* 头部左侧（关于/反馈/移动端） */
+#area-left {
+    position: relative;
+    width: 400px;
+    padding: 10px 40px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+
+#area-left a {
+    margin-right: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#area-left img {
+    position: relative;
+    top: -2px;
+}
+
+/* 头部右侧（天气/注册/登录） */
+#area-right {
+    width: 220px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+#area-right a {
+    color: #fff;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#weather {
+    letter-spacing: 2px;
+}
+
+/* 主体部分（导航/热点新闻/热搜榜/奥运新闻/金牌榜/奥运精彩瞬间） */
+.wrap {
+    width: 80%;
+    margin: auto;
+    padding: 0;
+    position: relative;
+}
+
+#modalBody textarea{
+    width: 100%;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+}
+
+/* 导航栏 */
+#nav ul {
+    display: flex;
+    margin: 0;
+}
+
+#nav li {
+    width: 12.5%;
+    height: 45px;
+    color: #333;
+    font-family: Arial;
+    cursor: pointer;
+}
+
+#nav li:hover {
+    color: #999;
+}
+
+#nav li:last-child:hover {
+    color: #333;
+}
+
+#arrow {
+    width: 12px;
+    height: 12px;
+    position: relative;
+    top: -2px;
+    transform: rotate(90deg);
+}
+
+#more-btn {
+    position: relative;
+}
+
+.more-content {
+    position: relative;
+    z-index: 999;
+    width: 50px;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, .08);
+    background-color: #fff;
+    transition: max-height ease 0.3s;
+}
+
+.show {
+    max-height: 300px;
+}
+
+.more-content span {
+    display: inline-block;
+    padding: 10px;
+    width: 80px;
+    height: 30px;
+}
+
+.more-content span:hover {
+    color: red;
+}
+
+/* 热点新闻区 */
+#hotNews-list-copy {
+    width: 600px;
+    margin: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+#hotNews-list-copy li:hover {
+    color: red;
+    cursor: pointer;
+}
+
+#hotNews {
+    display: flex;
+    width: 600px;
+    height: 240px;
+    background-color: #FFFAFA;
+    margin: 20px;
+    border: 1px solid #f2f2f2;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#hotNews-left-box {
+    width: 228px;
+    height: 238px;
+    padding-left: 20px;
+    background-image: linear-gradient(to right, #E5E9F2, #D5DAE8);
+}
+
+#today-hot {
+    margin-top: 30px;
+}
+
+#newsTitle {
+    margin: 20px 0;
+}
+
+#meta-info {
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #E8ECF3;
+}
+
+#share {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #E8ECF3;
+}
+
+#share img {
+    position: relative;
+    top: -2px;
+}
+
+/* 事件详情区 */
+#detail-div {
+    width: 100%;
+    height: 200px;
+    margin: 20px;
+    /* background-color: #FFFAFA; */
+}
+
+#event-title {
+    width: 600px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#event-content {
+    display: flex;
+    width: 420px;
+    height: 100px;
+    line-height: 80px;
+    font-size: 18px;
+    font-family: 'Arial';
+    color: #999;
+    font-weight: 300;
+    margin-top: 20px;
+    /* background-color:#E8ECF3; */
+}
+
+#event-content a {
+    color: #333;
+}
+
+#event-content a:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#event-footer {
+    width: 420px;
+    height: 50px;
+    line-height: 50px;
+    color: #999;
+    font-size: 14px;
+    /* background-color: antiquewhite; */
+}
+
+#event-footer span {
+    padding-right: 15px;
+}
+
+#event-img {
+    width: 150px;
+    height: 118px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #E8ECF3;
+}
+
+#event-img img:hover {
+    transform: scale(1.1, 1.1);
+    transition: all ease 1s;
+    cursor: pointer;
+}
+
+/* #hotNews-div {
+    display: flex;
+    width: 100%;
+} */
+
+#hotNews-list {
+    width: 388px;
+    height: 400px;
+    margin-left: 28px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+#hotNews-list ul {
+    width: 392px;
+    margin-top: 10px;
+}
+
+#hotNews-list li {
+    width: 360px;
+    height: 35px;
+}
+
+#hotnews-list-title {
+    position: relative;
+    color: #999;
+    font-size: 14px;
+}
+
+#hotnews-list-title img {
+    position: relative;
+    top: -2px;
+}
+
+#change-change {
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#hotNews-list li:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.split {
+    width: 600px;
+    height: 0.5px;
+    background-color: #edd8d8;
+}
+
+
+/* 媒体查询：当屏幕宽度达到1200px或更宽时，元素变为绝对定位 */
+@media (min-width: 1200px) {
+    .my-element {
+        visibility: hidden;
+    }
+}
+
+#suggest-div {
+    width: 620px;
+    margin-left: 17px;
+}
+
+#suggest-title {
+    width: 600px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.node {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 600px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #F8F8F8;
+}
+
+.node::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: -15px;
+    bottom: 0;
+    width: 2px;
+    height: 118px;
+    background: #f2f2f2;
+
+}
+
+/* 为最后一个node标签单独设置样式 */
+#time-node>.node:last-child::before {
+    content: '';
+    width: 0;
+    height: 0;
+}
+
+.node-thumb {
+    position: absolute;
+    top: 25px;
+    left: -20px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border: 3px solid #f04142;
+    border-radius: 6px;
+}
+
+.node-title {
+    display: block;
+    width: 600px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.node-content {
+    display: block;
+    width: 580px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #666;
+}
+
+#medal-div {
+    position: absolute;
+    top: 630px;
+    right: -120px;
+    width: 500px;
+    height: 610px;
+    border: 1px solid #f2f2f2;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#medal-title {
+    display: flex;
+    width: 500px;
+    height: 80px;
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    /* background-color: #E8ECF3; */
+    background-image: linear-gradient(to right, #D6C278, #F9F7ED);
+}
+
+.logo-box {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#medal-title img {
+    position: relative;
+    top: -2px;
+    width: 30px;
+}
+
+#medal-info {
+    display: flex;
+    width: 500px;
+}
+
+#competition {
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 3px solid #D6C278;
+}
+
+#competition-content {
+    position: relative;
+}
+
+.competition-border:hover {
+    background-color: #F9F9F9;
+    border-bottom: 3px solid red
+}
+
+#country {
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #999;
+}
+
+.country-border:hover {
+    background-color: #F9F9F9;
+}
+
+#competition-content ul {
+    padding: 0;
+}
+
+#competition-content li {
+    width: 468px;
+    height: 50px;
+    line-height: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.competition-img {
+    position: relative;
+    top: -2px;
+}
+
+/* 奥运区父元素容器属性 */
+.my-element02 {
+    width: 0;
+    height: 0;
+}
+
+/* 奖牌榜和精彩瞬间的父容器媒体查询（1200px/1020px） */
+@media(max-width:1200px) {
+    .my-element02 {
+        display: flex;
+        margin-top: 20px;
+        width: 100%;
+        height: 300px;
+        position: relative;
+    }
+}
+
+@media(max-width:1020px) {
+    .my-element02 {
+        display: block;
+        margin-top: 20px;
+        width: 600px;
+        height: 600px;
+        position: relative;
+    }
+}
+
+/* 奖牌榜媒体查询（1250px/1200px） */
+@media(max-width:1200px) {
+    #medal-div {
+        /* display: none; */
+        position: static;
+        margin: auto;
+        width: 600px;
+        height: 300px;
+    }
+
+    #medal-title {
+        width: 400px;
+    }
+
+    #medal-info {
+        width: 400px;
+    }
+
+    #competition {
+        width: 200px;
+    }
+
+    #country {
+        width: 200px;
+    }
+}
+
+@media(max-width:1250px) {
+    #medal-div {
+        width: 400px;
+        right: -40px;
+    }
+}
+
+
+#end-info {
+    position: absolute;
+    height: 30px;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 300;
+    right: 30px;
+}
+
+#end-info img {
+    position: relative;
+    top: -1px;
+    left: -8px;
+}
+
+#country-content {
+    position: relative;
+}
+
+#country-content ul {
+    padding: 0;
+}
+
+#country-content li {
+    width: 468px;
+    height: 50px;
+    line-height: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.country-img {
+    position: relative;
+    top: -2px;
+}
+
+#country-content span {
+    position: absolute;
+    right: 30px;
+    font-size: 14px;
+    font-weight: 300;
+    width: 200px;
+    height: 30px;
+    line-height: 18px;
+    text-align: right;
+}
+
+/* 奥运精彩瞬间 */
+
+#athlete-div {
+    position: absolute;
+    top: 1260px;
+    right: -120px;
+    width: 500px;
+    height: 360px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #f2f2f2;
+}
+
+#athlete-title {
+    display: flex;
+    width: 500px;
+    height: 60px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-image: linear-gradient(to right, #D6C278, #F9F7ED);
+}
+
+#athlete-title span {
+    font-size: 25px;
+}
+
+#athlete-title img {
+    width: 30px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+#prev-icon {
+    position: absolute;
+    top: 50%;
+}
+
+#next-icon {
+    position: absolute;
+    top: 50%;
+}
+
+/* 精彩瞬间（媒体查询）（1250px/1200px/1020px） */
+@media(max-width:1250px) {
+    #athlete-div {
+        width: 400px;
+        height: 300px;
+        right: -40px;
+        margin: auto;
+    }
+}
+
+@media(max-width:1200px) {
+    #athlete-div {
+        position: static;
+        width: 400px;
+        height: 300px;
+        right: -40px;
+        margin: auto;
+    }
+}
+
+@media(max-width:1020px) {
+    #athlete-div {
+        margin-top: 20px;
+    }
+}
+
+
+
+/* 尾部 */
+#footer {
+    width: 100%;
+    height: 300px;
+    margin-top: 100px;
+    background-image: radial-gradient(circle, #82cddf75, #c8dce1);
+}
+
+#footer ul {
+    display: flex;
+    padding: 0;
+}
+
+#footer li {
+    position: relative;
+    width: 25%;
+    height: 250px;
+    margin-top: 30px;
+    color: rgb(138, 185, 172);
+    text-align: center;
+}
+
+#footer li:first-child {
+    margin-left: 0;
+}
+
+#footer li::after {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    content: '';
+    width: 0.5px;
+    height: 250px;
+    background-color: #f9f9f9;
+}
+
+#footer li span {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#footer li:last-child::after {
+    width: 0;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News03</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="../CSS/newsPublic.css">
+    <link rel="stylesheet" href="../CSS/reset.css">
+</head>
+
+<body>
+    <!-- 引入vue和axios -->
+    <script src="https://cdn.staticfile.net/axios/1.6.5/axios.js" crossorigin="anonymous"></script>
+    <script src="../JS/vue.js"></script>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #B6DEE8; color: #fff;">
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapseNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapseNavbar">
+            <ul class="navbar-nav" id="header">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item dropdown d-md-block" v-show="get">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" v-show="get">{{username}}</a>
+                    <div class="dropdown-menu">
+                        <button href="#" id="logout" class="dropdown-item" @click="LogOut">注销</button>
+                    </div>
+                </li>
+                <li class="nav-item d-md-block">
+                    <a href="#" class="nav-link" v-show="get">
+                        <img v-bind:src="pic" alt="" width="20px" height="20px"
+                            style="border-radius: 50%; position: relative; top: -2px;">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../User/register.html" class="nav-link" v-show="!get">注册</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../User/siginIn.html" class="nav-link" v-show="!get">登录</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../News/search.html" class="nav-link">搜索
+                        <img src="../images/搜索.svg" alt="" width="20px" style="position: relative;top: -2px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="wrap container-fluid">
+        <!-- 标题 -->
+        <div id="title-div">
+            <div style="width: 90%;">
+                <span id="title">马龙回应庆祝动作</span>
+            </div>
+        </div>
+        <!-- 左侧互动区 -->
+        <div id="interact-div">
+            <div class="interact-subdiv">
+                <div>
+                    <img id="thumb"
+                        src="https://lf-dw.toutiaostatic.com/obj/toutiao-duanwai/toutiao/toutiao_web_pc/svgs/like.0caed57a.svg"
+                        alt="">
+
+                </div>
+                <span id="thumb-num">2513</span>
+            </div>
+            <div class="interact-subdiv">
+                <div>
+                    <img id="comment"
+                        src="https://lf-dw.toutiaostatic.com/obj/toutiao-duanwai/toutiao/toutiao_web_pc/svgs/icon_comment.d319bd6b.svg"
+                        alt="">
+                </div>
+                <span id="comment-num">137</span>
+            </div>
+        </div>
+        <!-- 新闻内容区 -->
+        <div id="news-content-div">
+            <div class="content-div">
+                <div style="width: 90%;">
+                    <p>在巴黎奥运会乒乓球男团决赛中，中国队马龙/王楚钦拿下首盘。赛后，马龙解锁新的庆祝动作，太燃了！网友：永远是我们最爱的龙队！</p>
+                    <p>这个充满活力和激情的庆祝动作，不仅展现出了马龙赛后的兴奋之情，也传递出了他对胜利的自信和对团队的热爱。作为中国乒乓球队的主力选手，马龙一直以积极向上、永不言弃的精神面貌，感染和鼓舞着每一个队友。
+                    </p>
+                </div>
+            </div>
+            <div id="img-div">
+                <div style="width: 90%;">
+                    <img src="../images/newsImg/03.jpg" class="img-fluid">
+                    <p style="margin-top: 10px;" id="img-title">马龙解锁新庆祝动作</p>
+                </div>
+            </div>
+            <div class="content-div">
+                <div style="width: 90%;">
+                    <p>网友们看到马龙的新庆祝动作后，纷纷留言表示："可爱的龙队"龙队出击"多可爱啊，还是那个奶龙"旋转跳舞！鞍山小马再出发！"。大家都被马龙阳光帅气的形象所吸引，也被他在赛场上的出色表现所折服。</p>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧评论区 -->
+        <div id="comment-area">
+            <div id="comment-title" class="d-flex">
+                <div class="d-flex justify-content-start" style="width: 60%;">
+                    <span id="commentNum">评论数 {{commentContent.length}}</span>
+                    <span id="send-success" v-show="isSend">发送成功!</span>
+                </div>
+                <div class="d-flex justify-content-end" style="width: 40%;">
+                    <span>
+                        <img id="cross" src="../images/叉号(1).svg" @click="close">
+                    </span>
+                </div>
+            </div>
+            <div class="split"></div>
+            <div id="text-div">
+                <textarea type="text" id="comment-textarea" placeholder="说点什么吧" @keyup.enter="postComment"></textarea>
+                <button @click="postComment">发送</button>
+            </div>
+            <div>
+                <!-- 先登录再评论 -->
+                <div v-show="userToken === '' || userToken === null" id="pleaseSign">
+                    <span>请登录后评论</span>
+                </div>
+                <ul id="comment-ul">
+                    <!-- 暂无评论 -->
+                    <div v-show="userToken !== '' && userToken !== null  && dataLength === 0" id="noComment">
+                        <span>暂无评论</span>
+                    </div>
+                    <!-- 评论详情 -->
+                    <li v-for="(item,index) in commentContent" class="d-flex" id="comment-li">
+                        <!-- 左侧头像 -->
+                        <div id="userImg-div">
+                            <img v-show="userToken !== '' && userToken !== null &&  dataLength > 0" v-bind:src="user[index].pic" id="userImg">
+                        </div>
+                        <!-- 右侧用户名和评论 -->
+                        <div id="username-div">
+                            <span id="username" v-show="userToken !== '' && userToken !== null && dataLength > 0">{{user[index].uname}}</span>
+                            <p v-show="userToken !== '' && userToken !== null && dataLength > 0" id="item">
+                                {{item}}
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../JS/header.js"></script>
+    <script src="../JS/comment.js"></script>
+    <!-- 注销，左侧点赞和评论按钮 -->
+    <script src="../JS/news.js"></script>
+</body>
+
+</html>

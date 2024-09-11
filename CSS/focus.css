@@ -1,0 +1,37 @@
+#focus-box {
+    width: 700px;
+    height: 200px;
+    margin-left: 200px;
+    position: relative;
+}
+
+#focus-div {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 200px;
+    top: 20%;
+    text-align: center;
+}
+
+#nofocus {
+    font-size: 25px;
+    font-family: 'pingfang';
+    margin-bottom: 10px;
+}
+
+#pleasefocus {
+    color: #999;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#focus-btn {
+    height: 40px;
+    line-height: 18px;
+    color: orangered;
+    padding: 10px;
+    border: 1px solid orangered;
+    border-radius: 3px;
+    background-color: #fff;
+}

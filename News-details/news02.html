@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News02</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <!-- 引入bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="../CSS/newsPublic.css">
+    <link rel="stylesheet" href="../CSS/reset.css">
+</head>
+
+<body>
+    <!-- 引入vue和axios -->
+    <script src="https://cdn.staticfile.net/axios/1.6.5/axios.js" crossorigin="anonymous"></script>
+    <script src="../JS/vue.js"></script>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #B6DEE8; color: #fff;">
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapseNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapseNavbar">
+            <ul class="navbar-nav" id="header">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item dropdown d-md-block" v-show="get">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" v-show="get">{{username}}</a>
+                    <div class="dropdown-menu">
+                        <button href="#" id="logout" class="dropdown-item" @click="LogOut">注销</button>
+                    </div>
+                </li>
+                <li class="nav-item d-md-block">
+                    <a href="#" class="nav-link" v-show="get">
+                        <img v-bind:src="pic" alt="" width="20px" height="20px"
+                            style="border-radius: 50%; position: relative; top: -2px;">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../User/register.html" class="nav-link" v-show="!get">注册</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../User/siginIn.html" class="nav-link" v-show="!get">登录</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../News/search.html" class="nav-link">搜索
+                        <img src="../images/搜索.svg" alt="" width="20px" style="position: relative;top: -2px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="wrap container-fluid">
+        <!-- 标题 -->
+        <div id="title-div">
+            <div style="width: 90%;">
+                <span id="title">信心恢复、预期向好！7月多个行业中小企业效益好转</span>
+            </div>
+        </div>
+        <!-- 左侧互动区 -->
+        <div id="interact-div">
+            <div class="interact-subdiv">
+                <div>
+                    <img id="thumb"
+                        src="https://lf-dw.toutiaostatic.com/obj/toutiao-duanwai/toutiao/toutiao_web_pc/svgs/like.0caed57a.svg"
+                        alt="">
+
+                </div>
+                <span id="thumb-num">2513</span>
+            </div>
+            <div class="interact-subdiv">
+                <div>
+                    <img id="comment"
+                        src="https://lf-dw.toutiaostatic.com/obj/toutiao-duanwai/toutiao/toutiao_web_pc/svgs/icon_comment.d319bd6b.svg"
+                        alt="">
+                </div>
+                <span id="comment-num">137</span>
+            </div>
+        </div>
+        <!-- 新闻内容区 -->
+        <div id="news-content-div">
+            <div class="content-div">
+                <div style="width: 90%;">
+                    <p>央视网消息：中国中小企业协会8月9日发布，7月中国中小企业发展指数为88.9与6月持平。多个分项指数和分行业指数企稳回升，信息传输软件业等6大行业中小企业效益好转。</p>
+                    <p>7月，中国中小企业发展指数的分项指数中，宏观经济感受指数、市场指数和效益指数均出现回升。显示出中小企业发展信心正在恢复，市场预期有所好转。同时，企业成本也有所下降效益出现回升。
+                    </p>
+                </div>
+            </div>
+            <div id="img-div">
+                <div style="width: 90%;">
+                    <img src="../images/newsImg/02.jpeg" class="img-fluid">
+                    <p style="margin-top: 10px;" id="img-title">7月份行业效益示意图</p>
+                </div>
+            </div>
+            <div class="content-div">
+                <div style="width: 90%;">
+                    <p>
+                        具体来看，在调查的国民经济八大行业中，建筑业、交通运输业、房地产业、批发零售业、社会服务业、信息传输软件业六个行业的国内订单指数都是上升的；与此同时，这六个行业的效益指数也都出现了不同程度的上升，其中信息传输软件业效益指数上升最多。从企业投入来看，企业投资意愿总体保持平稳，其中工业、建筑业、房地产业、社会服务业四个行业的固定资产投资指数上升，说明这几个行业对未来发展前景更加看好。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧评论区 -->
+        <div id="comment-area">
+            <div id="comment-title" class="d-flex">
+                <div class="d-flex justify-content-start" style="width: 60%;">
+                    <span id="commentNum">评论数 {{commentContent.length}}</span>
+                    <span id="send-success" v-show="isSend">发送成功!</span>
+                </div>
+                <div class="d-flex justify-content-end" style="width: 40%;">
+                    <span>
+                        <img id="cross" src="../images/叉号(1).svg" @click="close">
+                    </span>
+                </div>
+            </div>
+            <div class="split"></div>
+            <div id="text-div">
+                <textarea type="text" id="comment-textarea" placeholder="说点什么吧" @keyup.enter="postComment"></textarea>
+                <button @click="postComment">发送</button>
+            </div>
+            <div>
+                <!-- 先登录再评论 -->
+                <div v-show="userToken === '' || userToken === null" id="pleaseSign">
+                    <span>请登录后评论</span>
+                </div>
+                <ul id="comment-ul">
+                    <!-- 暂无评论 -->
+                    <div v-show="userToken !== '' && userToken !== null  && dataLength === 0" id="noComment">
+                        <span>暂无评论</span>
+                    </div>
+                    <!-- 评论详情 -->
+                    <li v-for="(item,index) in commentContent" class="d-flex" id="comment-li">
+                        <!-- 左侧头像 -->
+                        <div id="userImg-div">
+                            <img v-show="userToken !== '' && userToken !== null &&  dataLength > 0" v-bind:src="user[index].pic" id="userImg">
+                        </div>
+                        <!-- 右侧用户名和评论 -->
+                        <div id="username-div">
+                            <span id="username" v-show="userToken !== '' && userToken !== null && dataLength > 0">{{user[index].uname}}</span>
+                            <p v-show="userToken !== '' && userToken !== null && dataLength > 0" id="item">
+                                {{item}}
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../JS/header.js"></script>
+    <script src="../JS/comment.js"></script>
+    <!-- 注销，左侧点赞和评论按钮 -->
+    <script src="../JS/news.js"></script>
+</body>
+
+</html>
